@@ -9,34 +9,35 @@ const app = express();
 // json for incoming and outgoing request for the application
 app.use(express.json());
 // Put and Get ss Similar to post
+// Put and Get ss Similar to post
 app.post("/fulldetails", (req, res, next) => {
-  // Next is used to move to next available middleware
-  console.log(req.body);
-  return res.send("Details is Ready");
+    // Next is used to move to next available middleware
+    console.log(req.body);
+    return res.send("Details is Ready");
 });
 app.put("/update", (req, res, next) => {
-  // Next is used to move to next available middleware
-  console.log(req.body);
-  return res.send("Hello");
+    // Next is used to move to next available middleware
+    console.log(req.body);
+    return res.send("Hello");
 });
 app.get("/details", (req, res, next) => {
-  // Next is used to move to next available middleware
-  let details = {
-    UserName: "Shreyas",
-    Hobbies: "Coding, Swimming, Vollyball and Photography",
-  };
-  return res.send(details);
+    // Next is used to move to next available middleware
+    let details = {
+        UserName: "Shreyas",
+        Hobbies: "Coding, Swimming, Vollyball and Photography",
+    };
+    return res.send(details);
 });
 app.delete("/hello", (req, res, next) => {
-  // Next is used to move to next available middleware
-  console.log(req.body);
-  return res.send("Hello");
+    // Next is used to move to next available middleware
+    console.log(req.body);
+    return res.send("Hello");
 });
 // if we are sending some id in a URL route then we can access that using the id
 app.delete("/user/:userId", (req, res, next) => {
-  // Next is used to move to next available middleware
-  console.log(req.params.userId);
-  return res.send("Delete Request");
+    // Next is used to move to next available middleware
+    console.log(req.params.userId);
+    return res.send("Delete Request");
 });
 // Port where we want tp configure
 app.listen(5001, () => console.log("Server Open"));

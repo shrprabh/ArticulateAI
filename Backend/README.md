@@ -9,3 +9,6 @@ It's a completely secure application using JWT Tokens, HTTP-Only Cookies, Signed
 
 Contributions are welcome
 
+In order to RUN in Dev Environment 
+
+Use npm run dev
