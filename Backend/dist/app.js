@@ -8,6 +8,7 @@ const app = express();
 app.use(express.json());
 // remove it in production
 app.use(morgan("dev"));
+//Always check URL properly
 app.use("/api/v1", appRouter);
 export default app;
 //# sourceMappingURL=app.js.map
