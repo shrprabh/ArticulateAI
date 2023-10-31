@@ -15,12 +15,13 @@ export const getAllUsers = async (req, res, next) => {
 export const userSignUp = async (req, res, next) => {
     //get all users from the database
     try {
+        console.log("Inside User Sign Up");
         // user signup
         const { name, email, password } = req.body;
-        const hashedpassowrd = await hash(password, 10);
+        const hashedpassword = await hash(password, 10); //10 will do the 10 folds of encryption strategy
         // we can't store the password as it is in the backend so we need to encrypt the password
         // so we will use a library called bcrypt
-        const user = new User({ name, email, password: hashedpassowrd });
+        const user = new User({ name, email, password: hashedpassword });
         await user.save();
         const users = await User.find();
         // since id is in object format
