@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import User from "../models/User.js";
 import { compare, hash } from "bcrypt";
+import { createToken } from "../utils/token-manager.js";
 
 export const getAllUsers = async (
   req: Request,
@@ -62,9 +63,22 @@ export const userLogin = async (
     if (!isPasswordCorrect) {
       return res.status(403).send("Incorrect Password");
     }
+    // Creating a token after succesful signup
+    const token=createToken(user._id.toString(),user.email,"7d");
+    // know we need to send the token in the form of http cookies 
+    // we can do it using library cookie parser to send from backend to front end
+    res.clearCookie("auth_token"); // because if the same user login twice or again we need to clear the cookie and we need to set a new cookie
+    const expires=new Date();
+    // here also we can give the same day as token that is from present data
+    expires.setDate(expires.getDate()+7);
+    // path:"/" inside the root directoty we want to store cookies
+    // domain:"localhost" since we are working on local host if we deploy we need to change domain
+    // we can use expires since we have set above directly
+    res.cookie("auth_token",token,{path:"/",domain:"localhost",expires,httpOnly:true,signed:true});
     return res.status(200).send({message:"OK",id:user._id})
   } catch (error) {
     console.log(error);
     return res.status(500).json({ message: "ERROR", cause: error.message });
   }
 };
+
