@@ -2,6 +2,6 @@ import React from 'react'
 
 export const Chat = () => {
   return (
-    <div>c</div>
+    <div>chat</div>
   )
 }

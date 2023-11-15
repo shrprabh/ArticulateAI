@@ -18,16 +18,17 @@ export const Logo = () => {
           <img
             src={aiarticulate}
             alt="aiarticulate"
-            width={"30px"}
-            height={"30px"}
+            width={"60px"} // Increased size
+            height={"60px"} // Increased size
             className="image-inverted"
           />
           <Typography
             sx={{
               display: { md: "block", sm: "block", xs: "block" },
               mr: "auto",
-              forntWeight: "800",
+              fontWeight: "800",
               textShadow: "2px 2px 20px #000",
+              fontSize: "1.5rem", // Increased font size
             }}
           >
             <span style={{ fontSize: "20px" }}>AI</span>-Articulate
