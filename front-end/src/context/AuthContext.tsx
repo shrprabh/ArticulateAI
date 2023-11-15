@@ -1,7 +1,7 @@
 // User is loggedin we will receive the details and write login and logout functions
 
 import { ReactNode, createContext, useContext, useEffect, useState } from "react";
-import { loginUser } from "../helpers/api-communicator";
+import { checkAuthStatusCookie, loginUser } from "../helpers/api-communicator";
 
 type User = {
   name: string;
@@ -22,6 +22,15 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     //fetch if the user's cookies are valid then skip login
+    async function checkAuthStatus(){
+      const data=await checkAuthStatusCookie()
+      if(data){
+        setUser({email:data.email,name:data.name});
+        // after getting data it will set loggin to true
+        setIsLoggedIn(true);
+      }
+    }
+    checkAuthStatus();
   }, []);
   const login = async (email: string, password: string) => {
     const data=await loginUser(email,password);
