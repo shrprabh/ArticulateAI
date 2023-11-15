@@ -53,7 +53,7 @@ export const userSignUp = async (
     res.cookie(COOKIE_NAME,token,{path:"/",domain:"localhost",expires,httpOnly:true,signed:true});
     const users = await User.find();
     // since id is in object format
-    return res.status(200).json({ message: "OK", id: user._id.toString() });
+    return res.status(200).json({ message: "OK",name:user.name,email:user.email });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ message: "ERROR", cause: error.message });
@@ -90,7 +90,7 @@ export const userLogin = async (
     // domain:"localhost" since we are working on local host if we deploy we need to change domain
     // we can use expires since we have set above directly
     res.cookie(COOKIE_NAME,token,{path:"/",domain:"localhost",expires,httpOnly:true,signed:true});
-    return res.status(200).send({message:"OK",id:user._id})
+    return res.status(200).send({message:"OK",name:user.name,email:user.email })
   } catch (error) {
     console.log(error);
     return res.status(500).json({ message: "ERROR", cause: error.message });
