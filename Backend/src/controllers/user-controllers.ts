@@ -45,7 +45,7 @@ export const userSignUp = async (
     res.clearCookie(COOKIE_NAME,{path:"/",domain:"localhost",httpOnly:true,signed:true}); // because if the same user login twice or again we need to clear the cookie and we need to set a new cookie
     // in above expires is not required
     const expires=new Date();
-    // here also we can give the same day as token that is from present data
+    // here also we can give the same day as token that is from present date
     expires.setDate(expires.getDate()+7);
     // path:"/" inside the root directoty we want to store cookies
     // domain:"localhost" since we are working on local host if we deploy we need to change domain
