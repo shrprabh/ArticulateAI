@@ -1,5 +1,3 @@
-Certainly! Here's a complete README text formatted for your project. You can directly paste this into your README.md file:
-
 ```markdown
 # Front-End Project with Vite, React, TypeScript, and SWC
 
