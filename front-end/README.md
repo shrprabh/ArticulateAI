@@ -1,31 +1,20 @@
-```markdown
-# Front-End Project with Vite, React, TypeScript, and SWC
+## Usage
 
-## Overview
+### Overview
+AI Articulate is a frontend application built on top of Chat GPT, a product of OpenAI. It's designed to provide a seamless and interactive user experience.
 
-This front-end application is built using Vite, React, TypeScript, and SWC. It's designed for modern web development, offering fast build times and an efficient development experience.
+### Backend
+The backend is developed using Node.js, Express, and MongoDB. Future plans include deploying it to a server for enhanced accessibility and performance.
 
-## Prerequisites
+### Frontend
+The user interface (UI) is crafted using React and TypeScript, utilizing Vite for initial setup due to its speed and efficiency.
 
-- Node.js (version 12 or later)
-- npm (version 6 or later)
+### Running the Application
+To run the UI locally, you need to install the necessary packages and start the development server:
 
-## Installation
-
-To get started with this project, follow these steps:
-
-1. Clone the repository:
-   ```bash
-   git clone <repository-url>
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd front-end
-   ```
-3. Install the dependencies:
-   ```bash
+1. Install the dependencies:
    npm install
-   ```
+2. npm run dev
 
 ## Features
 
