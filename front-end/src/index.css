@@ -28,3 +28,8 @@ body {
   text-decoration: none;
   letter-spacing: 1px;
 }
+
+.MuiOutlinedInput-input.Mui-focused,.MuiOutlinedInput-notchedOutline{
+  border-color: white!important;
+
+}
