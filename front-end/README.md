@@ -53,6 +53,12 @@ Your contributions are always welcome! Please open an issue first to discuss wha
 - **React Hot Toast**: [React Hot Toast](https://react-hot-toast.com/) - Official website for React Hot Toast, showcasing its features and documentation.
 
 
+## Chat Completions API
+
+For text generation, this project utilizes the Chat Completions API from OpenAI. Refer to the official OpenAI documentation for detailed information on using the API:
+
+[OpenAI Chat Completions API Documentation](https://platform.openai.com/docs/guides/text-generation/chat-completions-api)
+
 ## License
 
 This project is licensed under the [MIT License](./LICENSE).
