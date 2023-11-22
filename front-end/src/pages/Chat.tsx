@@ -3,36 +3,29 @@ import { useAuth } from "../context/AuthContext";
 import { red } from "@mui/material/colors";
 import { ChatItem } from "../components/chat/ChatItem";
 import { IoMdSend} from 'react-icons/io';
-const chat_messages = [
-  { role: "user", content: "Hello, AI!" },
-  { role: "assistant", content: "Hi there! How can I help you today?" },
-  { role: "user", content: "I have a question about programming." },
-  {
-    role: "assistant",
-    content: "Sure, I'd be happy to help. What do you need assistance with?",
-  },
-  { role: "user", content: "Can you explain loops in Python?" },
-  {
-    role: "assistant",
-    content:
-      "Certainly! In Python, a loop is a control flow statement that allows you to repeatedly execute a block of code. There are two main types of loops: 'for' loops and 'while' loops.",
-  },
-  { role: "user", content: "Great! Tell me more about 'for' loops." },
-  {
-    role: "assistant",
-    content:
-      "A 'for' loop is used to iterate over a sequence (that is either a list, tuple, dictionary, string, or range). It executes a block of code for each item in the sequence.",
-  },
-  { role: "user", content: "Thanks for the explanation!" },
-  {
-    role: "assistant",
-    content:
-      "You're welcome! If you have any more questions, feel free to ask.",
-  },
-];
+import { useRef, useState } from "react";
+type Message={
+  role:"user"|"assistant";
+  content:string;
+}
 
 export const Chat = () => {
+  const inputRef=useRef<HTMLInputElement | null>(null)
   const auth = useAuth();
+  const [chatMessages, setChatMessages] = useState<Message[]>([])
+  const handleSubmit=async()=>{
+    if (inputRef.current && inputRef.current.value) {
+      const content = inputRef.current.value;
+      const newMessage:Message={ role:"user",content};
+      // Assuming you want to add the content to the chatMessages array
+      setChatMessages((prevMessages:Message[]) => [...prevMessages, newMessage]);
+
+      // You can also perform other actions with the 'content' variable as needed
+
+      // Clear the input field after submitting
+      inputRef.current.value = '';
+    }
+  }
   return (
     <Box
       sx={{
@@ -136,7 +129,7 @@ export const Chat = () => {
             },
           }}
         >
-          {chat_messages.map((chat, index) => (
+          {chatMessages.map((chat, index) => (
             <ChatItem
               content={chat.content}
               role={chat.role as "user" | "assistant"}
@@ -155,6 +148,7 @@ export const Chat = () => {
           }}
         >
           <input
+            ref={inputRef}
             type="text"
             style={{
               width: "100%",
@@ -166,7 +160,7 @@ export const Chat = () => {
               fontSize: "20px",
             }}
           ></input>
-          <IconButton sx={{ml:"auto",color:"white",}}><IoMdSend></IoMdSend></IconButton>
+          <IconButton onClick={handleSubmit} sx={{ml:"auto",color:"white",}}><IoMdSend></IoMdSend></IconButton>
         </div>
       </Box>
     </Box>
