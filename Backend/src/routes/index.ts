@@ -6,6 +6,6 @@ const appRouter=Router();
 
 //Creating structure
 appRouter.use("/user",userRoutes); //Domain/api/v1/user
-appRouter.use("/chats",chatRoutes);//Domain/api/v1/chats
+appRouter.use("/chat",chatRoutes);//Domain/api/v1/chats
 
 export default appRouter;

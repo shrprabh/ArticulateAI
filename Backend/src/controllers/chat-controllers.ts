@@ -10,9 +10,11 @@ export const generateChatCompletion = async (
 ) => {
   const { message } = req.body;
   try {
+    console.log(message)
     const user = await User.findById(res.locals.jwtData.id);
     if (!user) return res.status(401).json({ message: "User Doesn't Exist" });
     // grab the chats of user
+    console.log(user)
     const chats = user.chats.map(
       ({ role, content }) => ({ role, content } as ChatCompletionRequestMessage)
     );

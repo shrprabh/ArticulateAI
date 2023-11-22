@@ -4,6 +4,7 @@ import { red } from "@mui/material/colors";
 import { ChatItem } from "../components/chat/ChatItem";
 import { IoMdSend} from 'react-icons/io';
 import { useRef, useState } from "react";
+import { sendChatRequest } from "../helpers/api-communicator";
 type Message={
   role:"user"|"assistant";
   content:string;
@@ -21,7 +22,8 @@ export const Chat = () => {
       setChatMessages((prevMessages:Message[]) => [...prevMessages, newMessage]);
 
       // You can also perform other actions with the 'content' variable as needed
-
+      const chatData = await sendChatRequest(content);
+      setChatMessages([...chatData.chats])
       // Clear the input field after submitting
       inputRef.current.value = '';
     }
