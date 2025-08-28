@@ -21,3 +21,5 @@
   # Future Update
   - Retrieval Augumented Generative Model.
   - Using most updated data to until present.
+# Screenshots
+<img width="800" height="520" alt="image" src="https://github.com/user-attachments/assets/0723896b-8cbf-41d5-b025-989c208320ac" />
