@@ -2,6 +2,9 @@
 ## A chatting web app implemented using react and mongodb atlas which is used for creating the user credentials after authentication using google or firebase login.
 - Chat is stored in mongodb
 - We will be using the OpenAPI for the responses
+# Screenshots
+<img width="800" height="520" alt="image" src="https://github.com/user-attachments/assets/e891b435-9705-49e8-abb3-bebd8df6eacd" />
+
   # Key Features
   - Free
   - ChatGPT 4 Model
